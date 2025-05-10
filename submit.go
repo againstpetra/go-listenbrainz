@@ -40,9 +40,31 @@ type Payload struct {
 
 // Track is a helper struct for marshalling the JSON payload
 type Track struct {
-	Title  string `json:"track_name"`
-	Artist string `json:"artist_name"`
-	Album  string `json:"release_name"`
+	Title          string `json:"track_name"`
+	Artist         string `json:"artist_name"`
+	Album          string `json:"release_name"`
+	AdditionalInfo `json:"additional_info"`
+}
+
+type AdditionalInfo struct {
+	ArtistMbid              []string `json:"artist_mbids"`
+	ReleaseGroupMbid        string   `json:"release_group_mbid"`
+	ReleaseMbid             string   `json:"release_mbid"`
+	RecordingMbid           string   `json:"recording_mbid"`
+	TrackMbid               string   `json:"track_mbid"`
+	WorkMbids               []string `json:"work_mbids"`
+	Tracknumber             []string `json:"tracknumber"`
+	Isrc                    string   `json:"isrc"`
+	SpotifyId               string   `json:"spotify_id"`
+	Tags                    []string `json:"tags"`
+	MediaPlayer             string   `json:"media_player"`
+	MediaPlayerVersion      string   `json:"media_player_version"`
+	SubmissionClient        string   `json:"submission_client"`
+	SubmissionClientVersion string   `json:"submission_client_version"`
+	MusicService            string   `json:"music_service"`
+	MusicServiceName        string   `json:"music_service_name"`
+	OriginUrl               string   `json:"origin_url"`
+	DurationMs              *int64   `json:"duration_ms,omitempty"`
 }
 
 // FormatPlayingNow formats a Track as a playing_now Submission.

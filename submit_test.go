@@ -42,10 +42,21 @@ func TestGetSubmissionTime(t *testing.T) {
 }
 
 func TestFormatPlayingNow(t *testing.T) {
+	additional_info := AdditionalInfo{
+		MediaPlayer:             "Rythembox",
+		SubmissionClient:        "Rhythmbox ListenBrainz Plugin",
+		SubmissionClientVersion: "1.0",
+		ReleaseMbid:             "bf9e91ea-8029-4a04-a26a-224e00a83266",
+		ArtistMbid:              []string{"db92a151-1ac2-438b-bc43-b82e149ddd50"},
+		RecordingMbid:           "98255a8c-017a-4bc7-8dd6-1fa36124572b",
+		Tags:                    []string{"you", "just", "got", "rick", "rolled!"},
+		DurationMs:              222000,
+	}
 	track := Track{
-		Title:  "b",
-		Artist: "a",
-		Album:  "c",
+		Title:          "b",
+		Artist:         "a",
+		Album:          "c",
+		AdditionalInfo: additional_info,
 	}
 
 	ts := Submission{
